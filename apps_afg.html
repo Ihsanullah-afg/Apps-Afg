@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apps Afg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, black 33.33%, red 33.33% 66.66%, green 66.66%);
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    header, footer {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    .language-selector {
+      margin: 10px;
+    }
+    .search-bar {
+      margin: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border-radius: 5px;
+      border: none;
+    }
+    .apk-card {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 15px auto;
+      max-width: 700px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #4267B2;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .developer-badge-moving {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      animation: moveText 6s linear infinite, shineText 2s ease-in-out infinite, colorShift 3s linear infinite;
+      padding: 10px 0;
+      z-index: 9999;
+    }
+    @keyframes moveText {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @keyframes shineText {
+      0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #00ffcc; }
+      50% { text-shadow: 0 0 15px #fff, 0 0 25px #ff00ff; }
+    }
+    @keyframes colorShift {
+      0% { color: black; }
+      33% { color: red; }
+      66% { color: green; }
+      100% { color: black; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="site-title">Apps Afg</h1>
+    <div class="language-selector">
+      <label for="lang">Select Language:</label>
+      <select id="lang" onchange="switchLang()">
+        <option value="en">English</option>
+        <option value="ps">پښتو</option>
+        <option value="fa">دری</option>
+      </select>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search APKs... / APK وپلټئ / APK را جستجو کنید">
+    </div>
+  </header>
+
+  <div class="apk-card">
+    <h2 id="app-title">Sample App</h2>
+    <p id="app-desc">This is a sample description. You can add your APKs below.</p>
+    <!-- Google Play Store download link -->
+    <a href="https://play.google.com/store/apps/details?id=com.example.yourapp" class="btn" id="download-btn" target="_blank">Download on Google Play</a>
+  </div>
+
+  <!-- Google AdSense Advertisement -->
+  <div class="adsense-container" style="margin: 20px auto;">
+    <!-- Example AdSense Ad Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXX"  <!-- Use your AdSense client ID here -->
+         data-ad-slot="XXXXXXX"  <!-- Use your AdSense ad slot number here -->
+         data-ad-format="auto"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <footer>
+    <a href="https://www.facebook.com/share/1VHUbRfgMF/" class="btn" target="_blank" id="follow-btn">Follow Me on Facebook</a>
+    <p>© 2025 Apps Afg</p>
+  </footer>
+
+  <div class="developer-badge-moving">Developed by IHSAN SAFI 🇦🇫</div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Apps Afg",
+        appTitle: "Sample App",
+        appDesc: "This is a sample description. You can add your APKs below.",
+        download: "Download APK",
+        follow: "Follow Me on Facebook",
+        search: "Search APKs..."
+      },
+      ps: {
+        title: "ایپس افغان",
+        appTitle: "نمونه اپلیکیشن",
+        appDesc: "دا د اپلیکیشن یو مثال دی، ته کولای شې خپل APKs دلته اضافه کړې.",
+        download: "APK ښکته کړئ",
+        follow: "فیسبوک کې تعقیب کړئ",
+        search: "APK وپلټئ"
+      },
+      fa: {
+        title: "اپلیکیشن افغان",
+        appTitle: "نمونه برنامه",
+        appDesc: "این یک نمونه توضیح است، می‌توانید برنامه‌های خود را در اینجا اضافه کنید.",
+        download: "دانلود APK",
+        follow: "در فیسبوک دنبال کنید",
+        search: "APK را جستجو کنید"
+      }
+    };
+
+    function switchLang() {
+      const lang = document.getElementById('lang').value;
+      document.getElementById('site-title').innerText = translations[lang].title;
+      document.getElementById('app-title').innerText = translations[lang].appTitle;
+      document.getElementById('app-desc').innerText = translations[lang].appDesc;
+      document.getElementById('download-btn').innerText = translations[lang].download;
+      document.getElementById('follow-btn').innerText = translations[lang].follow;
+      document.getElementById('search').placeholder = translations[lang].search;
+    }
+  </script>
+</body>
+</html>
